@@ -3,9 +3,9 @@
 	"id": "dye-balloons",
 	"version": "${version}",
 	"name": "Dye Balloons",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Throw dye at your friends! Throw dye at your sheep! Throw dye at yourself!",
 	"authors": [
-		"Me!"
+		"awfulroffle!"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
