@@ -7,32 +7,27 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+
+import java.util.function.Function;
 
 public class ModItems {
 
-    public class ModItems {
-        public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
-            // Create the item key.
-            ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
-
-            // Create the item instance.
-            Item item = itemFactory.apply(settings.setId(itemKey));
-
-            // Register the item.
-            Registry.register(BuiltInRegistries.ITEM, itemKey, item);
-
-            return item;
-        }
-
+    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
+        return Registry.register(Registries.ITEM, Identifier.of(DyeBalloons.MOD_ID, name),
+                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(DyeBalloons.MOD_ID, name)))));
     }
-    public static final Item RED_BALLOON = register("red_balloon", Item::new, new Item.Properties());
+    public static final Item RED_BALLOON = registerItem("red_balloon", Item::new);
 
     public static void registerModItems() {
         DyeBalloons.LOGGER.info("Registering Mod Items for " + DyeBalloons.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(RED_BALLOON);
+
+
         });
     }
 }
