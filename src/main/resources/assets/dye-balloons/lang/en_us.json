@@ -1,3 +1,8 @@
 {
-  "item.dye-balloons.red_balloon": "Red Balloon"
+  "item.dye-balloons.red_balloon": "Red Balloon",
+  "item.dye-balloons.orange_balloon": "Orange Balloon",
+
+  "entity.dye-balloons.orange_balloon": "Orange Balloon",
+
+  "itemgroup.dyeballoons": "Dye Balloons"
 }

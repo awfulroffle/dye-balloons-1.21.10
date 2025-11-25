@@ -1,5 +1,6 @@
 package dyeballoons.modid;
 
+import dyeballoons.modid.item.ModItemGroups;
 import dyeballoons.modid.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,5 +14,6 @@ public class DyeBalloons implements ModInitializer {
 	@Override
 	public void onInitialize() {
         ModItems.registerModItems();
+        ModItemGroups.registerItemGroups();
 	}
 }
